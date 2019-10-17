@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:fragment="header">
+    <meta charset="UTF-8"/>
+    <!--<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" />
+    <link th:href="@{/css/style.css}" rel="stylesheet"/>-->
+</head>
+<body>
+
+<div th:fragment="navbar">
+
+    <nav class="navbar navbar navbar-expand-lg navbar-light bg-dark" th:fragment="main-navbar">
+        <a class="navbar-brand text-white" href="/">
+            &nbsp;MyCourses
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <!--</nav>-->
+
+            <ul class="nav navbar-nav ml-auto">
+
+<!--                the Username will display if the user is authenticated (logged in) otherwise the link to login will show.-->
+
+                <li sec:authorize="isAuthenticated()" class="nav-link text-warning" th:inline="text">
+                    Welcome [[${#authentication.name}]]!
+                </li>
+                <li class="nav-item">
+                    <a sec:authorize="!isAuthenticated()" class="nav-link text-white" href="/login">Login</a>
+                </li>
+
+
+
+                <li class="nav-item text-light">
+                    <a class="nav-link text-white" href="/">Home</a>
+                </li>
+
+
+                <li sec:authorize="isAuthenticated()" class="nav-item text-light">
+                    <a class="nav-link text-white" href="/add">Courses</a>
+                </li>
+
+                <li class="nav-item">
+                    <a sec:authorize="isAuthenticated()" class="nav-link text-white"        href="/logout">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="space"></div>
+
+    <div class="jumbotron text-center">
+        <!--<h1>Fido is Missing! &#9785;</h1>-->
+        <h1>MyCourses </h1>
+    </div>
+
+    <div class="space"></div>
+
+</div>
+
+<footer th:fragment="footer">
+    <div class="footer" align="center">
+        <hr/>
+        <span class="text-muted">&copy; 2019 </span>
+    </div>
+</footer>
+
+<!--<div th:fragment="scripts">
+    <script src="/js/jquery.3.2.1.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/popper.min.js"></script>
+</div>-->
+
+</div>
+
+<br><br>
+<!--Footer-->
+<div th:insert="base :: footer"></div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+</html>

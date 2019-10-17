@@ -20,11 +20,13 @@
 //
 //    @Override
 //    public void run(String... strings) throws Exception{
-//        roleRepository.save(new Role("USER"));
-//        roleRepository.save(new Role("ADMIN"));
-//        roleRepository.save(new Role("TEACHER"));
-//        roleRepository.save(new Role("STUDENT"));
-//
+
+//        if(roleRepository.findAll()== null){
+//          roleRepository.save(new Role("USER"));
+//          roleRepository.save(new Role("ADMIN"));
+//          roleRepository.save(new Role("TEACHER"));
+//          roleRepository.save(new Role("STUDENT"));
+//        }
 //
 //
 //        Role adminRole = roleRepository.findByRole("ADMIN");

@@ -84,4 +84,10 @@ public class HomeController {
     public String teacherlistPage(){
         return "teacherlist";
     }
+
+    @RequestMapping("/info")
+    public String infoPage(){
+        return "info";
+    }
 }
+
